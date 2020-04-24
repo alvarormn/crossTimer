@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-6 offset-lg-3">
+
+    <div class="jumbotron">
+      <h1 class="display-4">Cronometro</h1>
+      <hr class="my-4">
+      <div>
+        {{hour}} : {{minute}} : {{second}} : {{milisecond}}
+      </div>
+      <a class="btn btn-primary btn-lg" (click)="start()" role="button">Empezar</a>
+      <a class="btn btn-warning btn-lg" (click)="stop()" role="button">Parar</a>
+    </div>
+
+  </div>
+</div>
