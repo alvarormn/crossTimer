@@ -1,3 +1,10 @@
-#rojo{
-  background-color: red
+#display{
+  color:#333333;
+  text-align: center;
+  font-size: 4rem;
+  font-family: alarm_clockregular;
+}
+
+.milisecond{
+  font-size: 1.75rem;
 }

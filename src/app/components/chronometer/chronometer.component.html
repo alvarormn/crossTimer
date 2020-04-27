@@ -4,11 +4,20 @@
     <div class="jumbotron">
       <h1 class="display-4">Cronometro</h1>
       <hr class="my-4">
-      <div>
-        {{hour}} : {{minute}} : {{second}} : {{milisecond}}
+      <div id="display" class="col-md-12">
+          <span *ngIf="day != 0">{{displayDay}}:</span>
+          <span *ngIf="hour != 0">{{displayHour}}:</span>
+          <span>{{displayMin}}:</span>
+          <span>{{displaySec}}:</span>
+          <span class="milisecond">{{displayMil}}</span>
+
       </div>
-      <a class="btn btn-primary btn-lg" (click)="start()" role="button">Empezar</a>
-      <a class="btn btn-warning btn-lg" (click)="stop()" role="button">Parar</a>
+      <div class="row">
+        <a class="btn btn-primary" (click)="start()" role="button">Empezar</a>
+        <a class="btn btn-warning" (click)="pause()" role="button">Pause</a>
+        <a class="btn btn-warning" (click)="getInterval()" role="button">Intervalo</a>
+      </div>
+
     </div>
 
   </div>

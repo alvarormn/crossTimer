@@ -8,6 +8,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { ChronometerComponent } from './components/chronometer/chronometer.component';
 import { TimerComponent } from './components/timer/timer.component';
 
+import {MatListModule} from '@angular/material/list';
+
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { TimerComponent } from './components/timer/timer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
