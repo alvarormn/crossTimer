@@ -5,6 +5,13 @@
   font-family: alarm_clockregular;
 }
 
+.jumbotron{
+  margin-top: 1em;
+}
+
 .milisecond{
   font-size: 1.75rem;
 }
+ .center{
+   align-content: center;
+ }

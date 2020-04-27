@@ -9,6 +9,7 @@ import { ChronometerComponent } from './components/chronometer/chronometer.compo
 import { TimerComponent } from './components/timer/timer.component';
 
 import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -23,7 +24,8 @@ import {MatListModule} from '@angular/material/list';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatListModule
+    MatListModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

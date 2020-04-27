@@ -9,16 +9,21 @@ export class ChronometerComponent implements OnInit {
 
   displayDay :string = "00";
   displayHour :string = "00";
-  displayMin :string = "59";
-  displaySec :string = "58";
+  displayMin :string = "00";
+  displaySec :string = "00";
   displayMil :string = "00";
   day :number = 0;
   hour: number = 0;
-  minute: number = 59;
-  second: number = 58;
+  minute: number = 0;
+  second: number = 0;
   milisecond: number = 0;
   interval = [];
   chrono;
+  clickedPlay:boolean = false;
+  clickedPause:boolean = true;
+  clickedInterval:boolean = true;
+  isPaused:boolean;
+  count;
 
   constructor() {
   }
@@ -40,6 +45,9 @@ export class ChronometerComponent implements OnInit {
   }
 
   start(){
+    this.count = 0;
+    this.isPaused = false;
+
     this.chrono = setInterval(()=>{
       this.milisecond +=1;
       this.displayMil = this.convert(this.milisecond);
@@ -76,11 +84,34 @@ export class ChronometerComponent implements OnInit {
   }
 
   getInterval(){
+    this.count =+1
     let data = this.displayDay + ':' + this.displayHour + ':' + this.displayMin + ':' + this.displaySec + ':' + this.displayMil;
+    if (this.isPaused === true && this.count > 0) {
+      this.clickedInterval = true;
+    }
     this.interval.push(data);
-    console.log(this.interval);
 
+  }
 
+  stop(){
+    clearInterval(this.chrono);
+    this.displayDay = "00";
+    this.displayHour = "00";
+    this.displayMin = "00";
+    this.displaySec = "00";
+    this.displayMil = "00";
+    this.day = 0;
+    this.hour = 0;
+    this.minute = 0;
+    this.second = 0;
+    this.milisecond = 0;
+    this.interval = [];
+    this.chrono;
+    this.clickedPlay = false;
+    this.clickedPause = true;
+    this.clickedInterval = true;
+    this.isPaused = true;
+    this.count = 0;
   }
 
 }

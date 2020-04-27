@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-6 offset-lg-3">
+  <div class="col-lg-8 offset-lg-2">
 
     <div class="jumbotron">
       <h1 class="display-4">Cronometro</h1>
@@ -13,11 +13,45 @@
 
       </div>
       <div class="row">
-        <a class="btn btn-primary" (click)="start()" role="button">Empezar</a>
-        <a class="btn btn-warning" (click)="pause()" role="button">Pause</a>
-        <a class="btn btn-warning" (click)="getInterval()" role="button">Intervalo</a>
-      </div>
+        <div class="col-sm-3 center">
+          <button mat-raised-button
+          color="primary"
+          [disabled]="clickedPlay"
+          (click)="start();
+          clickedPlay=true;
+          clickedPause=false;
+          clickedInterval=false">
+            Empezar
+          </button>
+        </div>
+        <div class="col-sm-3 center">
+          <button mat-raised-button
+          color="accent"
+          [disabled]="clickedPause"
+          (click)="pause(); clickedPlay=false; clickedPause=true; isPaused=true">
+            Pause
+          </button>
+        </div>
+        <div class="col-sm-3 center">
+          <button mat-raised-button
+          color="accent"
+          [disabled]="clickedInterval"
+          (click)="getInterval();">
+            Intervalo
+          </button>
+        </div>
+        <div class="col-sm-3 center">
+          <button mat-raised-button color="warn" (click)="stop()">Reiniciar</button>
+        </div>
 
+
+
+
+      </div>
+      <hr class="my-4">
+      <mat-list>
+        <mat-list-item *ngFor="let time of interval">{{time}}</mat-list-item>
+      </mat-list>
     </div>
 
   </div>
