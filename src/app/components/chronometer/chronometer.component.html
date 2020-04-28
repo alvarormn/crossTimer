@@ -21,7 +21,7 @@
           clickedPlay=true;
           clickedPause=false;
           clickedInterval=false">
-            Empezar
+            {{buttonPlay}}
           </button>
         </div>
         <div class="col-sm-3 center">
@@ -49,10 +49,16 @@
 
       </div>
       <hr class="my-4">
-      <mat-list>
-        <mat-list-item *ngFor="let time of interval">{{time}}</mat-list-item>
-      </mat-list>
+      <div class="row">
+        <div class="col-md-12">
+          <mat-list>
+            <mat-list-item *ngFor="let time of interval">
+              <div>{{time.orden}}</div>
+              <div>{{time.data}}</div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
     </div>
-
   </div>
 </div>
