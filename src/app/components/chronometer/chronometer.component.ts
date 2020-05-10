@@ -9,13 +9,13 @@ export class ChronometerComponent implements OnInit {
 
   displayDay :string = "00";
   displayHour :string = "00";
-  displayMin :string = "59";
-  displaySec :string = "58";
+  displayMin :string = "00";
+  displaySec :string = "00";
   displayMil :string = "00";
   day :number = 0;
   hour: number = 0;
-  minute: number = 59;
-  second: number = 58;
+  minute: number = 0;
+  second: number = 0;
   milisecond: number = 0;
   interval = [];
   chrono;

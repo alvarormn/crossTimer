@@ -1,12 +1,113 @@
 <div class="row">
-  <div class="col-lg-6 offset-lg-3">
+  <div class="col-lg-12">
 
-    <div class="jumbotron">
-      <h1 class="display-4">Timer</h1>
+    <mat-card class="main">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Timer</mat-card-title>
+        <!--mat-card-subtitle>Dog Breed</mat-card-subtitle-->
+      </mat-card-header>
       <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </div>
+      <mat-card-content class="container">
+        <div class="row">
+          <div class="col-sm-12 col-xl-3">
+            <div class="col-xl-12">
+              <div id="setTime">
+                <h5>{{time.seconds}} Segundos</h5>
+                <!--mat-form-field class="example-full-width">
+                  <mat-label>Seconds</mat-label>
+                  <input matInput type="number" [(ngModel)]="time.seconds" placeholder="Máximo 59 segundos">
+                </mat-form-field-->
+                <mat-slider
+                  [disabled]="disabled"
+                  [invert]="invert"
+                  [max]="max"
+                  [min]="min"
+                  [step]="step"
+                  [thumbLabel]="thumbLabel"
+                  [tickInterval]="getSliderTickInterval()"
+                  [(ngModel)]="time.seconds"
+                  [vertical]="vertical">
+                </mat-slider>
+              </div>
+            </div>
+            <hr class="my-4">
+            <div class="col-xl-12">
+              <div id="setTime">
+                <h5>{{time.minutes}} Minutos</h5>
+                <mat-slider
+                  [disabled]="disabled"
+                  [invert]="invert"
+                  [max]="max"
+                  [min]="min"
+                  [step]="step"
+                  [thumbLabel]="thumbLabel"
+                  [tickInterval]="getSliderTickInterval()"
+                  [(ngModel)]="time.minutes"
+                  [vertical]="vertical">
+                </mat-slider>
+              </div>
+            </div>
+            <hr class="my-4">
+            <div class="col-xl-12">
+              <div id="setTime">
+                <h5>{{time.hours}} Horas</h5>
+                <mat-slider
+                  [disabled]="disabled"
+                  [invert]="invert"
+                  [max]="maxHours"
+                  [min]="min"
+                  [step]="step"
+                  [thumbLabel]="thumbLabel"
+                  [tickInterval]="getSliderTickInterval()"
+                  [(ngModel)]="time.hours"
+                  [vertical]="vertical">
+                </mat-slider>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="display col-md-12">
+
+              <span *ngIf="time.hours != 0">{{display.hours}}:</span>
+              <span>{{display.minutes}}:</span>
+              <span>{{display.seconds}}</span>
+              <h4>{{dFinish}}</h4>
+            </div>
+            {{time.minutes}}:{{time.seconds}}
+            <div class="col-md-12">
+              <button mat-raised-button
+              color="primary"
+              [disabled]="clickedPlay"
+              (click)="start(); clickedPlay = true; clickedPause = false;">
+                {{buttonPlay}}
+              </button>
+
+              <button mat-raised-button
+              color="accent"
+              [disabled]="clickedPause"
+              (click)="pause(); clickedPlay=false; clickedPause = true;">
+                Pause
+              </button>
+
+              <button mat-raised-button
+              color="accent"
+              (click)="reset(); clickedPlay=false; clickedPause = true;">
+                Restablecer
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4">
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+
 
   </div>
 </div>
+
+<!--[(ngModel)]="time.seconds"-->
