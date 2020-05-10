@@ -64,7 +64,6 @@ export class TimerComponent implements OnInit {
           this.display.minutes = '59'
           if (--this.time.hours < 0) {
             this.dFinish = "Terminado"
-            console.log('second-> ' + this.time.seconds)
             clearInterval(this.chrono)
           }
         }

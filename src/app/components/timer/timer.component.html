@@ -74,35 +74,32 @@
               <span>{{display.seconds}}</span>
               <h4>{{dFinish}}</h4>
             </div>
-            {{time.minutes}}:{{time.seconds}}
-            <div class="col-md-12">
-              <button mat-raised-button
-              color="primary"
-              [disabled]="clickedPlay"
-              (click)="start(); clickedPlay = true; clickedPause = false;">
-                {{buttonPlay}}
-              </button>
-
-              <button mat-raised-button
-              color="accent"
-              [disabled]="clickedPause"
-              (click)="pause(); clickedPlay=false; clickedPause = true;">
-                Pause
-              </button>
-
-              <button mat-raised-button
-              color="accent"
-              (click)="reset(); clickedPlay=false; clickedPause = true;">
-                Restablecer
-              </button>
-            </div>
           </div>
         </div>
         <hr class="my-4">
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button mat-raised-button
+        color="primary"
+        [disabled]="clickedPlay"
+        (click)="start(); clickedPlay = true; clickedPause = false;">
+          {{buttonPlay}}
+        </button>
+
+        <button mat-raised-button
+        color="accent"
+        [disabled]="clickedPause"
+        (click)="pause(); clickedPlay=false; clickedPause = true;">
+          Pause
+        </button>
+
+        <button mat-raised-button
+        color="accent"
+        (click)="reset(); clickedPlay=false; clickedPause = true;">
+          Restablecer
+        </button>
+        <!--button mat-button>LIKE</button>
+        <button mat-button>SHARE</button-->
       </mat-card-actions>
     </mat-card>
 
