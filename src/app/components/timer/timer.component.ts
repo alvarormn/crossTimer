@@ -10,6 +10,7 @@ import { Display } from '../../models/setTimeTimer/setDisplay';
 })
 export class TimerComponent implements OnInit {
   time: Time;
+  set: Time;
   display: Display;
   buttonPlay = 'Iniciar';
   clickedPlay: Boolean = false;
@@ -31,9 +32,11 @@ export class TimerComponent implements OnInit {
   tickInterval = 1;
   num: number = 10;
 
+
   constructor(
 
   ) {
+    this.set = new Time(0,0,0);
     this.time = new Time(0,0,0);
     this.display = new Display('00','00','00');
   }
@@ -56,6 +59,7 @@ export class TimerComponent implements OnInit {
     }
 
     this.chrono = setInterval(()=>{
+      console.log(this.set)
       if (--this.time.seconds < 0) {
         this.time.seconds = 59;
         this.display.seconds = '59'
@@ -64,6 +68,9 @@ export class TimerComponent implements OnInit {
           this.display.minutes = '59'
           if (--this.time.hours < 0) {
             this.dFinish = "Terminado"
+            this.display.seconds = this.join(this.set.seconds);
+            this.display.minutes = this.join(this.set.minutes);
+            this.display.hours = this.join(this.set.hours);
             clearInterval(this.chrono)
           }
         }
@@ -73,6 +80,7 @@ export class TimerComponent implements OnInit {
   };
 
   match(){
+    this.set = this.time
     this.display.seconds = this.join(this.time.seconds);
     this.display.minutes = this.join(this.time.minutes);
     this.display.hours = this.join(this.time.hours);
