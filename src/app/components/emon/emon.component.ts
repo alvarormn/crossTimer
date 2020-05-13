@@ -37,33 +37,36 @@ export class EmonComponent implements OnInit {
 
 
     //for (const a of this.reps) {
-      this.display.seconds = '10';
-      this.display.minutes = '00';
-      this.time.seconds = 10;
-      this.time.minutes = 0;
+      /*this.display.seconds = '00';
+      this.display.minutes = '01';
+      this.time.seconds = 0;
+      this.time.minutes = 1;*/
+      for (let i = 0; i < this.reps.length; i++) {
 
-      this.chrono = setInterval(()=>{
+        console.log('reps ' + this.reps.length)
 
-      if (--this.time.seconds < 0) {
-        this.time.minutes = 0
-        this.display.minutes = '00'
-        this.time.seconds = 59;
+
+        this.chrono = setInterval(()=>{
+
+        if (--this.time.seconds < 0) {
+          this.time.minutes = 0;
+          this.display.minutes = '0';
+          this.time.seconds = 59;
+        }
+        //console.log(this.join(this.time.seconds))
+        this.display.seconds = this.join(this.time.seconds);
+
+        if (this.time.seconds == 0 && this.time.minutes == 0) {
+          clearInterval(this.chrono)
+        }
+
+        },1000);
       }
-      //console.log(this.join(this.time.seconds))
-      this.display.seconds = this.join(this.time.seconds);
-
-      if (this.time.seconds == 0 && this.time. minutes == 0) {
-        clearInterval(this.chrono)
-      }
-
-      },1000);
-      this.count++
-
-      if (this.count < this.reps.length) {
+      /*if (++this.count < this.reps.length) {
         console.log('cuantas ' + this.count)
         console.log('reps ' + this.reps.length)
         this.start()
-      }
+      }*/
 
   }
 
