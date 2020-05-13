@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-lg-4">
+    <mat-card class="main">
+      <mat-card-header>
+        <mat-card-title>Configuración</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <hr class="my-4-fix-top">
+      <mat-card-content>
+        <form [formGroup]="checkoutForm">
+          <mat-form-field class="example-full-width">
+            <mat-label>Rondas</mat-label>
+            <input matInput formControlName="reps" type="number" placeholder="0">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <hr class="my-4-fix-bottom">
+      <mat-card-actions>
+        <button mat-button (click)="apply()">Aplicar</button>
+        <button mat-button>Resetear</button>
+      </mat-card-actions>
+
+    </mat-card>
+  </div>
+
+  <div class="col-lg-8">
+    <mat-card class="main">
+      <mat-card-header>
+        <mat-card-title>{{ title }}</mat-card-title>
+      </mat-card-header>
+      <hr class="my-4-fix-top">
+      <mat-card-content>
+        <div class="display">
+          {{ display.minutes }}:{{ display.seconds }}
+        </div>
+        <table *ngIf="reps" class="table table-bordered">
+          <thead>
+            <tr>
+              <th *ngFor="let col of reps">First</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td *ngFor="let col of reps">First</td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card-content>
+      <hr class="my-4-fix-bottom">
+      <mat-card-actions>
+        <button mat-button (click)="start();">Inicio</button>
+        <button mat-button>Pausa</button>
+        <button mat-button>Reinicio</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>
