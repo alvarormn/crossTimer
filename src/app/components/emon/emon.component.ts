@@ -32,37 +32,38 @@ export class EmonComponent implements OnInit {
   }
 
   interval(){
-    return new Promise(a =>{
-      let b = setInterval(()=>{
+    return new Promise(resolve =>{
+      this.chrono = setInterval(()=>{
         if (--this.time.seconds < 0) {
           this.time.minutes = 0;
           this.display.minutes = '0';
           this.time.seconds = 59;
         }
         this.display.seconds = this.join(this.time.seconds);
-        console.log(this.time.seconds);
-        console.log(this.time.minutes);
         if (this.time.seconds === 0) {
-          clearInterval(b)
+          resolve();
+          clearInterval(this.chrono);
         }
       },1000);
-
     })
-
   }
 
 
 
   async start(){
+    let count =0;
     this.display.minutes = '0';
-    this.display.seconds = '10';
+    this.display.seconds = '0';
     this.time.minutes = 0;
-    this.time.seconds = 10;
+    this.time.seconds = 0;
 
     for (let i = 0; i < this.reps.length; i++) {
+
       await this.interval();
-      console.log(i + ' <-> ' + this.reps.length);
+      console.log(++count);
     }
+
+
   }
 
   apply(){
