@@ -1004,8 +1004,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function interval() {
           var _this2 = this;
 
-          return new Promise(function (a) {
-            var b = setInterval(function () {
+          return new Promise(function (resolve) {
+            _this2.chrono = setInterval(function () {
               if (--_this2.time.seconds < 0) {
                 _this2.time.minutes = 0;
                 _this2.display.minutes = '0';
@@ -1013,11 +1013,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
 
               _this2.display.seconds = _this2.join(_this2.time.seconds);
-              console.log(_this2.time.seconds);
-              console.log(_this2.time.minutes);
 
               if (_this2.time.seconds === 0) {
-                clearInterval(b);
+                resolve();
+                clearInterval(_this2.chrono);
               }
             }, 1000);
           });
@@ -1028,35 +1027,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee() {
-            var i;
+            var count, i;
             return regeneratorRuntime.wrap(function _callee$(_context) {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
+                    count = 0;
                     this.display.minutes = '0';
-                    this.display.seconds = '10';
+                    this.display.seconds = '0';
                     this.time.minutes = 0;
-                    this.time.seconds = 10;
+                    this.time.seconds = 0;
                     i = 0;
 
-                  case 5:
+                  case 6:
                     if (!(i < this.reps.length)) {
-                      _context.next = 12;
+                      _context.next = 13;
                       break;
                     }
 
-                    _context.next = 8;
+                    _context.next = 9;
                     return this.interval();
 
-                  case 8:
-                    console.log(i + ' <-> ' + this.reps.length);
-
                   case 9:
+                    console.log(++count);
+
+                  case 10:
                     i++;
-                    _context.next = 5;
+                    _context.next = 6;
                     break;
 
-                  case 12:
+                  case 13:
                   case "end":
                     return _context.stop();
                 }
