@@ -18,3 +18,21 @@
   font-size: 4rem;
   font-family: alarm_clockregular;
 }
+
+.round{
+  text-align: center;
+}
+
+.tdWait{
+  background-color: #8fd3f4;
+
+}
+
+.tdRun{
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.tdDone{
+  background-color: #84fab0;
+
+}

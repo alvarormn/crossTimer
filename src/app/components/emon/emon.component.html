@@ -33,18 +33,24 @@
         <div class="display">
           {{ display.minutes }}:{{ display.seconds }}
         </div>
-        <table *ngIf="reps" class="table table-bordered">
-          <thead>
-            <tr>
-              <th *ngFor="let col of reps">First</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td *ngFor="let col of reps">First</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table *ngIf="reps" class="table table-striped">
+            <tbody>
+              <tr>
+                <td *ngFor="let col of reps; index as i"
+                [ngClass]="{
+                  'tdWait':i > index,
+                  'tdRun':i == index,
+                  'tdDone':i < index
+                }"
+                class="round">
+                Round: {{i + 1}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </mat-card-content>
       <hr class="my-4-fix-bottom">
       <mat-card-actions>
