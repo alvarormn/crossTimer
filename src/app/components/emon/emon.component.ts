@@ -52,9 +52,9 @@ export class EmonComponent implements OnInit {
 
   async start(){
     let count =0;
-    this.display.minutes = '00';
+    this.display.minutes = '01';
     this.display.seconds = '00';
-    this.time.minutes = 0;
+    this.time.minutes = 1;
     this.time.seconds = 0;
 
     for (let i = 0; i < this.reps.length; i++) {
