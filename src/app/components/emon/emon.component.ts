@@ -36,7 +36,7 @@ export class EmonComponent implements OnInit {
       this.chrono = setInterval(()=>{
         if (--this.time.seconds < 0) {
           this.time.minutes = 0;
-          this.display.minutes = '0';
+          this.display.minutes = '00';
           this.time.seconds = 59;
         }
         this.display.seconds = this.join(this.time.seconds);
@@ -52,8 +52,8 @@ export class EmonComponent implements OnInit {
 
   async start(){
     let count =0;
-    this.display.minutes = '0';
-    this.display.seconds = '0';
+    this.display.minutes = '00';
+    this.display.seconds = '00';
     this.time.minutes = 0;
     this.time.seconds = 0;
 
