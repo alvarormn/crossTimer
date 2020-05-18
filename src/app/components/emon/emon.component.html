@@ -8,10 +8,26 @@
       <hr class="my-4-fix-top">
       <mat-card-content>
         <form [formGroup]="checkoutForm">
+          <p>
           <mat-form-field class="example-full-width">
             <mat-label>Rondas</mat-label>
-            <input matInput formControlName="reps" type="number" placeholder="0">
+            <input
+            min="0"
+            matInput
+            formControlName="reps"
+            type="number"
+            (change)="checkCB()">
           </mat-form-field>
+          </p><p>
+          <mat-checkbox
+          formControlName="rest"
+          [disabled]="checkboxDisabled"
+          [matTooltipDisabled]="matTooltipDisabled"
+          matTooltip="Indique el numero de rondas"
+          aria-label="Button that displays a tooltip when focused or hovered over">
+            Descansos
+          </mat-checkbox>
+          </p>
         </form>
       </mat-card-content>
       <hr class="my-4-fix-bottom">
@@ -33,7 +49,7 @@
         <div class="display">
           {{ display.minutes }}:{{ display.seconds }}
         </div>
-        <div class="table-responsive">
+        <div id=TableReps class="table-responsive">
           <table *ngIf="reps" class="table table-striped">
             <tbody>
               <tr>
