@@ -18,8 +18,7 @@ export class EmonComponent implements OnInit {
   chrono;
   index;
   rounds:number = 1;
-  checkboxDisabled:boolean = true;
-  matTooltipDisabled:boolean = false;
+
 
   constructor(
     private formBuilder: FormBuilder
@@ -27,15 +26,14 @@ export class EmonComponent implements OnInit {
     this.display = new Display('00','01');
     this.time = new Time(0,1);
     this.checkoutForm = this.formBuilder.group({
-      reps: 0,
-      rest: false
+      reps: 0
     });
   }
 
   ngOnInit(): void {
   }
 
-  interval(count){
+  interval(){
     return new Promise(resolve =>{
 
       this.chrono = setInterval(()=>{
@@ -48,20 +46,12 @@ export class EmonComponent implements OnInit {
         if (this.time.seconds === 0) {
           resolve();
           clearInterval(this.chrono);
-          clearInterval(scroll)
+
         }
 
 
       },1000);
-      console.log(count);
 
-      let scroll = setInterval(()=>{
-        if (count > 4) {
-          let table = document.getElementById('TableReps');
-
-          table.scrollBy(50,0);
-        }
-      },10000)
     })
   }
 
@@ -72,13 +62,13 @@ export class EmonComponent implements OnInit {
     this.display.seconds = '00';
     this.time.minutes = 1;
     this.time.seconds = 0;
-    let count = 0;
+
 
     for (this.index = 0; this.index < this.reps.length; this.index++) {
-      ++count
 
 
-      await this.interval(count);
+
+      await this.interval();
 
     }
 
@@ -100,14 +90,14 @@ export class EmonComponent implements OnInit {
     }
   }
 
-  checkCB(){
-    this.checkboxDisabled = false;
+  /*checkCB(){
+    //this.checkboxDisabled = false;
     this.matTooltipDisabled = true;
     if (this.checkoutForm.value.reps == 0) {
       this.checkboxDisabled = true;
       this.matTooltipDisabled = false;
     }
 
-  }
+  }*/
 
 }
