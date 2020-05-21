@@ -13,9 +13,16 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/timer" routerLinkActive="active">Temporizador</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/emon" routerLinkActive="active">EMOM</a>
-        </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Intervalos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Libre</a>
+          <a class="dropdown-item" routerLink="/emon" routerLinkActive="active">EMOM</a>
+          <a class="dropdown-item" href="#">TABATA</a>
+        </div>
+      </li>
       </ul>
     </div>
   </div>
