@@ -10,6 +10,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { ChronometerComponent } from './components/chronometer/chronometer.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { EmonComponent } from './components/emon/emon.component';
+import { IntervalComponent } from './components/interval/interval.component';
 
 
 import {MatListModule} from '@angular/material/list';
@@ -23,13 +24,15 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     ChronometerComponent,
     TimerComponent,
-    EmonComponent
+    EmonComponent,
+    IntervalComponent
   ],
   imports: [
     BrowserModule,
