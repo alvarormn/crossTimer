@@ -20,6 +20,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -46,8 +49,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatGridListModule,
     MatCardModule,
     MatInputModule,
-    MatDialogModule
-
+    MatDialogModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [
