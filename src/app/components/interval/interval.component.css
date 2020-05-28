@@ -7,3 +7,11 @@
   font-size: 2rem;
   font-family: alarm_clockregular;
 }
+
+.display{
+  height: 100%;
+  color:#333333;
+  text-align: center;
+  font-size: 4rem;
+  font-family: alarm_clockregular;
+}
