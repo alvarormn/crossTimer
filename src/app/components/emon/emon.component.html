@@ -2,69 +2,56 @@
   <div class="col-lg-4">
     <mat-card class="main">
       <mat-card-header>
-        <mat-card-title>Configuración</mat-card-title>
+        <mat-card-title class="section-title">Configuración</mat-card-title>
       </mat-card-header>
-      <hr class="my-4-fix-top">
       <mat-card-content>
+        <p class="section-subtitle">Elige cuántas rondas quieres completar.</p>
         <form [formGroup]="checkoutForm">
-          <p>
           <mat-form-field class="example-full-width">
             <mat-label>Rondas</mat-label>
-            <input
-            matInput
-            formControlName="reps"
-            type="number"
-            min="0"
-            placeholder="">
+            <input matInput formControlName="reps" type="number" min="0">
           </mat-form-field>
-          </p>
         </form>
       </mat-card-content>
-      <hr class="my-4-fix-bottom">
-      <mat-card-actions>
-        <button mat-button (click)="apply()">Aplicar</button>
-        <button mat-button>Resetear</button>
+      <mat-card-actions class="action-row">
+        <button mat-raised-button color="primary" (click)="apply()">Aplicar</button>
+        <button mat-raised-button color="warn">Resetear</button>
       </mat-card-actions>
-
     </mat-card>
   </div>
 
   <div class="col-lg-8">
     <mat-card class="main">
       <mat-card-header>
-        <mat-card-title>{{ title }}</mat-card-title>
+        <mat-card-title class="section-title">{{ title }}</mat-card-title>
       </mat-card-header>
-      <hr class="my-4-fix-top">
       <mat-card-content>
-        <div class="display">
-          {{ display.minutes }}:{{ display.seconds }}
-        </div>
-        <div id=TableReps class="table-responsive">
+        <div class="timer-display">{{ display.minutes }}:{{ display.seconds }}</div>
+
+        <div id="TableReps" class="table-responsive">
           <table *ngIf="reps" class="table table-striped">
             <tbody>
               <tr>
-                <td *ngFor="let col of reps; index as i"
-                [ngClass]="{
-                  'tdWait':i > index,
-                  'tdRun':i == index,
-                  'tdDone':i < index
-                }"
-                class="round">
-                Round: {{i + 1}}
+                <td
+                  *ngFor="let col of reps; index as i"
+                  [ngClass]="{
+                    'tdWait': i > index,
+                    'tdRun': i == index,
+                    'tdDone': i < index
+                  }"
+                  class="round">
+                  Ronda {{ i + 1 }}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-
       </mat-card-content>
-      <hr class="my-4-fix-bottom">
-      <mat-card-actions>
-        <button mat-button (click)="start();">Inicio</button>
-        <button mat-button>Pausa</button>
-        <button mat-button>Reinicio</button>
+      <mat-card-actions class="action-row">
+        <button mat-raised-button color="primary" (click)="start();">Iniciar</button>
+        <button mat-raised-button color="accent">Pausa</button>
+        <button mat-raised-button color="warn">Reinicio</button>
       </mat-card-actions>
     </mat-card>
-
   </div>
 </div>

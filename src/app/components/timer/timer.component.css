@@ -1,17 +1,29 @@
-.main{
-  margin-top: 1em;
+.main {
+  margin-top: 0.5rem;
 }
 
-#setTime{
-  height: auto;
-  padding-left: 1em;
+.control-block {
+  display: grid;
+  gap: 0.75rem;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 0.75rem;
 }
 
-.display{
-  border: 1px solid black;
-  height: 100%;
-  color:#333333;
+#setTime {
+  padding: 0.25rem 0.5rem;
+}
+
+#setTime h5 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  text-transform: capitalize;
+}
+
+.finish-time {
+  margin: 1rem 0 0;
   text-align: center;
-  font-size: 4rem;
-  font-family: alarm_clockregular;
+  color: #334155;
+  font-size: 1rem;
 }

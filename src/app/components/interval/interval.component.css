@@ -1,17 +1,27 @@
-.main{
-  margin-top: 1em;
+.main {
+  margin-top: 0.5rem;
 }
 
-.time{
+.settings-stack {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.time {
   text-align: center;
   font-size: 2rem;
-  font-family: alarm_clockregular;
+  font-family: alarm_clockregular, Roboto, sans-serif;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 0.5rem;
+  background: #f8fafc;
 }
 
-.display{
-  height: 100%;
-  color:#333333;
-  text-align: center;
-  font-size: 4rem;
-  font-family: alarm_clockregular;
+#tableTime {
+  margin: 0 auto;
+}
+
+.error {
+  color: #b91c1c;
+  font-weight: 500;
 }

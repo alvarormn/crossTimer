@@ -1,8 +1,91 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global design tokens */
+:root {
+  --bg-start: #0f172a;
+  --bg-end: #1e3a8a;
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-strong: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --accent: #2563eb;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.2);
+}
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+  color: var(--text-primary);
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-image: radial-gradient(circle at 20% 20%, #1d4ed8 0%, transparent 35%),
+    linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  background-attachment: fixed;
+}
+
+.page-shell {
+  min-height: calc(100vh - 72px);
+  padding: 1.25rem 0 2rem;
+}
+
+.view-container {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1.25rem;
+}
+
+.section-title {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.timer-display {
+  background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  color: #0f172a;
+  text-align: center;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-family: alarm_clockregular, Roboto, sans-serif;
+  padding: 0.75rem 1rem;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.15em;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.action-row button {
+  min-width: 130px;
+}
+
+@media (max-width: 767px) {
+  .view-container {
+    padding: 1rem;
+  }
+
+  .action-row button {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 0;
+  }
 }
