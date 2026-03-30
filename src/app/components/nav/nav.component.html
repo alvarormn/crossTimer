@@ -1,59 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg app-navbar" aria-label="Navegación principal">
   <div class="container">
-    <a class="navbar-brand" href="#">{{ title }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" routerLink="/chronos">{{ title }}</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar"
+      aria-controls="navbar"
+      aria-expanded="false"
+      aria-label="Mostrar menú">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbar">
-
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/chronos" routerLinkActive="active">Cronometro</a>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" routerLink="/chronos">Cronómetro</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/timer" routerLinkActive="active">Temporizador</a>
-        </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Intervalos
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink="/interval" routerLinkActive="active">Libre</a>
-          <a class="dropdown-item" routerLink="/emon" routerLinkActive="active">EMOM</a>
-          <a class="dropdown-item" href="#">TABATA</a>
-        </div>
-      </li>
-      </ul>
-    </div>
-  </div>
-
-</nav>
-
-
-<!--nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="#">{{ title }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/chronos" routerLinkActive="active">Cronometro</a>
-        </li>
-        <li class="nav-item">
+        <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/timer">Temporizador</a>
-
-
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">AMRAP</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">EMOM</a>
+        <li class="nav-item dropdown" routerLinkActive="active">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            Intervalos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/interval" routerLinkActive="active">Libre</a>
+            <a class="dropdown-item" routerLink="/emon" routerLinkActive="active">EMOM</a>
+            <span class="dropdown-item disabled" aria-disabled="true">TABATA (próximamente)</span>
+          </div>
         </li>
       </ul>
     </div>
   </div>
-</nav-->
+</nav>

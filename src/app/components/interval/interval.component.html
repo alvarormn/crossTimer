@@ -2,41 +2,40 @@
   <div class="col-lg-4">
     <mat-card class="main">
       <mat-card-header>
-        <mat-card-title>Configuración</mat-card-title>
+        <mat-card-title class="section-title">Configuración</mat-card-title>
       </mat-card-header>
       <mat-card-content>
+        <p class="section-subtitle">Define cómo se repartirán tus bloques de trabajo.</p>
+
         <mat-checkbox
-        (mouseenter)="tooltip.show()"
-        (mouseleave)="tooltip.hide()"
-        class="example-margin"
-        [(ngModel)]="interval.sameTime"
-        [(indeterminate)]="indeterminate"
-        [labelPosition]="labelPosition"
-        [disabled]="disabled">
-        <span
-        #tooltip="matTooltip"
-        matTooltip="Todos los intervalos tendrán el mismo tiempo">
-        </span>
+          (mouseenter)="tooltip.show()"
+          (mouseleave)="tooltip.hide()"
+          class="example-margin"
+          [(ngModel)]="interval.sameTime"
+          [(indeterminate)]="indeterminate"
+          [labelPosition]="labelPosition"
+          [disabled]="disabled">
+          <span #tooltip="matTooltip" matTooltip="Todos los intervalos tendrán la misma duración"></span>
           Tiempos unificados
         </mat-checkbox>
-        <div *ngIf="interval.sameTime">
+
+        <div *ngIf="interval.sameTime" class="settings-stack">
           <mat-form-field>
-            <mat-label>
-              Nº Intervalos
-            </mat-label>
+            <mat-label>Nº intervalos</mat-label>
             <input matInput type="number" min="0" [(ngModel)]="interval.intervals">
           </mat-form-field>
-          <div class="col-sm-6 offset-sm-3 time">
+
+          <div class="time">
             <table id="tableTime">
               <tr>
                 <td>
-                  <button mat-icon-button (click)="addMins()">
+                  <button mat-icon-button aria-label="Subir minutos" (click)="addMins()">
                     <mat-icon>keyboard_arrow_up</mat-icon>
                   </button>
                 </td>
                 <td></td>
                 <td>
-                  <button mat-icon-button (click)="addSecs()">
+                  <button mat-icon-button aria-label="Subir segundos" (click)="addSecs()">
                     <mat-icon>keyboard_arrow_up</mat-icon>
                   </button>
                 </td>
@@ -44,50 +43,51 @@
               <tr>
                 <td>{{ interval.minDis }}</td>
                 <td>:</td>
-                <td>{{ interval.secDis  }}</td>
+                <td>{{ interval.secDis }}</td>
               </tr>
               <tr>
                 <td>
-                  <button mat-icon-button (click)="subtractMins()">
+                  <button mat-icon-button aria-label="Bajar minutos" (click)="subtractMins()">
                     <mat-icon>keyboard_arrow_down</mat-icon>
                   </button>
                 </td>
                 <td></td>
                 <td>
-                  <button mat-icon-button (click)="subtractSecs()">
+                  <button mat-icon-button aria-label="Bajar segundos" (click)="subtractSecs()">
                     <mat-icon>keyboard_arrow_down</mat-icon>
                   </button>
                 </td>
               </tr>
             </table>
           </div>
-          <span *ngIf="error">{{error}}</span>
+
+          <span class="error" *ngIf="error">{{ error }}</span>
         </div>
-        <div *ngIf="!interval.sameTime">
-          Si los tiempos no son iguales se configurará aquí.
+
+        <div class="section-subtitle" *ngIf="!interval.sameTime">
+          Próximamente: configuración de tiempos personalizados por intervalo.
         </div>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="apply()">Aplicar</button>
-        <button mat-button (click)="reset()">Resetear</button>
+
+      <mat-card-actions class="action-row">
+        <button mat-raised-button color="primary" (click)="apply()">Aplicar</button>
+        <button mat-raised-button color="warn" (click)="reset()">Resetear</button>
       </mat-card-actions>
     </mat-card>
-
   </div>
+
   <div class="col-lg-8">
-    <mat-card  class="main">
+    <mat-card class="main">
       <mat-card-header>
-        <mat-card-title>Intervalos</mat-card-title>
+        <mat-card-title class="section-title">Intervalos</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <div class="display">
-          {{ timer.minDisplay }}:{{ timer.secDisplay }}
-        </div>
+        <div class="timer-display">{{ timer.minDisplay }}:{{ timer.secDisplay }}</div>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="start();">Inicio</button>
-        <button mat-button>Pausa</button>
-        <button mat-button>Reinicio</button>
+      <mat-card-actions class="action-row">
+        <button mat-raised-button color="primary" (click)="start();">Iniciar</button>
+        <button mat-raised-button color="accent">Pausa</button>
+        <button mat-raised-button color="warn">Reinicio</button>
       </mat-card-actions>
     </mat-card>
   </div>

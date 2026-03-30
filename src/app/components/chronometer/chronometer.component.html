@@ -1,60 +1,51 @@
 <div class="row">
-  <div class="col-lg-8 offset-lg-2">
+  <div class="col-lg-10 offset-lg-1">
+    <section class="chronometer-shell">
+      <h1 class="section-title">Cronómetro</h1>
+      <p class="section-subtitle">Sigue tu tiempo total y registra vueltas para medir progreso.</p>
 
-    <div class="jumbotron">
-      <h1 class="display-4">Cronometro</h1>
-      <hr class="my-4">
-      <div id="display" class="col-md-12">
-          <span *ngIf="day != 0">{{displayDay}}:</span>
-          <span *ngIf="hour != 0">{{displayHour}}:</span>
-          <span>{{displayMin}}:</span>
-          <span>{{displaySec}}:</span>
-          <span class="milisecond">{{displayMil}}</span>
-          <div class="row">
-            <div class="col-md-12">
-              <mat-list>
-                <mat-list-item *ngFor="let time of interval">
-                  <div>{{time.orden}}</div>
-                  <div>{{time.data}}</div>
-                </mat-list-item>
-              </mat-list>
-            </div>
-          </div>
+      <div id="display" class="timer-display" aria-live="polite">
+        <span *ngIf="day != 0">{{ displayDay }}:</span>
+        <span *ngIf="hour != 0">{{ displayHour }}:</span>
+        <span>{{ displayMin }}:</span>
+        <span>{{ displaySec }}:</span>
+        <span class="milisecond">{{ displayMil }}</span>
       </div>
-      <hr class="my-4">
-      <div class="row">
-        <div class="col-sm-3 center">
-          <button mat-raised-button
+
+      <div class="action-row mt-3 mb-3">
+        <button
+          mat-raised-button
           color="primary"
           [disabled]="clickedPlay"
-          (click)="start();
-          clickedPlay=true;
-          clickedPause=false;
-          clickedInterval=false">
-            {{buttonPlay}}
-          </button>
-        </div>
-        <div class="col-sm-3 center">
-          <button mat-raised-button
+          (click)="start(); clickedPlay = true; clickedPause = false; clickedInterval = false">
+          {{ buttonPlay }}
+        </button>
+        <button
+          mat-raised-button
           color="accent"
           [disabled]="clickedPause"
-          (click)="pause(); clickedPlay=false; clickedPause=true; isPaused=true">
-            Pause
-          </button>
-        </div>
-        <div class="col-sm-3 center">
-          <button mat-raised-button
+          (click)="pause(); clickedPlay = false; clickedPause = true; isPaused = true">
+          Pausar
+        </button>
+        <button
+          mat-raised-button
           color="accent"
           [disabled]="clickedInterval"
           (click)="getInterval();">
-            Intervalo
-          </button>
-        </div>
-        <div class="col-sm-3 center">
-          <button mat-raised-button color="warn" (click)="stop()">Reiniciar</button>
-        </div>
+          Registrar vuelta
+        </button>
+        <button mat-raised-button color="warn" (click)="stop()">Reiniciar</button>
       </div>
 
-    </div>
+      <section class="laps" *ngIf="interval.length">
+        <h2 class="laps-title">Vueltas</h2>
+        <mat-list>
+          <mat-list-item *ngFor="let time of interval">
+            <div class="lap-item">{{ time.orden }}</div>
+            <div class="lap-item">{{ time.data }}</div>
+          </mat-list-item>
+        </mat-list>
+      </section>
+    </section>
   </div>
 </div>

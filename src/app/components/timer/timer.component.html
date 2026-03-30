@@ -1,23 +1,18 @@
 <div class="row">
-  <div class="col-lg-12">
-
+  <div class="col-12">
     <mat-card class="main">
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Timer</mat-card-title>
-        <!--mat-card-subtitle>Dog Breed</mat-card-subtitle-->
+        <mat-card-title class="section-title">Temporizador</mat-card-title>
       </mat-card-header>
-      <hr class="my-4">
-      <mat-card-content class="container">
+
+      <mat-card-content class="container-fluid px-0">
+        <p class="section-subtitle">Define la duración y controla tu sesión con pausas rápidas.</p>
+
         <div class="row">
-          <div class="col-sm-12 col-xl-3">
-            <div class="col-xl-12">
+          <div class="col-xl-3 col-lg-4">
+            <section class="control-block" aria-label="Ajustes de tiempo">
               <div id="setTime">
-                <h5>{{time.seconds}} Segundos</h5>
-                <!--mat-form-field class="example-full-width">
-                  <mat-label>Seconds</mat-label>
-                  <input matInput type="number" [(ngModel)]="time.seconds" placeholder="Máximo 59 segundos">
-                </mat-form-field-->
+                <h5>{{ time.seconds }} segundos</h5>
                 <mat-slider
                   [disabled]="disabled"
                   [invert]="invert"
@@ -30,11 +25,9 @@
                   [vertical]="vertical">
                 </mat-slider>
               </div>
-            </div>
-            <hr class="my-4">
-            <div class="col-xl-12">
+
               <div id="setTime">
-                <h5>{{time.minutes}} Minutos</h5>
+                <h5>{{ time.minutes }} minutos</h5>
                 <mat-slider
                   [disabled]="disabled"
                   [invert]="invert"
@@ -47,11 +40,9 @@
                   [vertical]="vertical">
                 </mat-slider>
               </div>
-            </div>
-            <hr class="my-4">
-            <div class="col-xl-12">
+
               <div id="setTime">
-                <h5>{{time.hours}} Horas</h5>
+                <h5>{{ time.hours }} horas</h5>
                 <mat-slider
                   [disabled]="disabled"
                   [invert]="invert"
@@ -64,47 +55,45 @@
                   [vertical]="vertical">
                 </mat-slider>
               </div>
-            </div>
+            </section>
           </div>
-          <div class="col-md-9">
-            <div class="display col-md-12">
 
-              <span *ngIf="time.hours != 0">{{display.hours}}:</span>
-              <span>{{display.minutes}}:</span>
-              <span>{{display.seconds}}</span>
-              <h4>{{dFinish}}</h4>
+          <div class="col-xl-9 col-lg-8 d-flex align-items-center">
+            <div class="timer-display w-100" aria-live="polite">
+              <span *ngIf="time.hours != 0">{{ display.hours }}:</span>
+              <span>{{ display.minutes }}:</span>
+              <span>{{ display.seconds }}</span>
             </div>
           </div>
         </div>
-        <hr class="my-4">
+
+        <h4 class="finish-time" *ngIf="dFinish">Finaliza a las {{ dFinish }}</h4>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button
-        color="primary"
-        [disabled]="clickedPlay"
-        (click)="start(); clickedPlay = true; clickedPause = false;">
-          {{buttonPlay}}
+
+      <mat-card-actions class="action-row">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="clickedPlay"
+          (click)="start(); clickedPlay = true; clickedPause = false;">
+          {{ buttonPlay }}
         </button>
 
-        <button mat-raised-button
-        color="accent"
-        [disabled]="clickedPause"
-        (click)="pause(); clickedPlay=false; clickedPause = true;">
-          Pause
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="clickedPause"
+          (click)="pause(); clickedPlay = false; clickedPause = true;">
+          Pausar
         </button>
 
-        <button mat-raised-button
-        color="accent"
-        (click)="reset(); clickedPlay=false; clickedPause = true;">
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="reset(); clickedPlay = false; clickedPause = true;">
           Restablecer
         </button>
-        <!--button mat-button>LIKE</button>
-        <button mat-button>SHARE</button-->
       </mat-card-actions>
     </mat-card>
-
-
   </div>
 </div>
-
-<!--[(ngModel)]="time.seconds"-->

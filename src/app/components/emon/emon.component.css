@@ -1,38 +1,20 @@
-.main{
-  margin-top: 1em;
+.main {
+  margin-top: 0.5rem;
 }
 
-.my-4-fix-top{
-  margin-top: 0.4rem!important;
-  margin-bottom: 1.5rem!important;
-}
-.my-4-fix-bottom{
-  margin-top: 1.5rem!important;
-  margin-bottom: 0.4rem!important;
-}
-
-.display{
-  height: 100%;
-  color:#333333;
+.round {
   text-align: center;
-  font-size: 4rem;
-  font-family: alarm_clockregular;
+  font-weight: 500;
 }
 
-.round{
-  text-align: center;
+.tdWait {
+  background-color: #fecaca;
 }
 
-.tdWait{
-  background-color: #F30B0B;
-
+.tdRun {
+  background-image: linear-gradient(120deg, #bfdbfe 0%, #93c5fd 100%);
 }
 
-.tdRun{
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-}
-
-.tdDone{
-  background-color: #84fab0;
-
+.tdDone {
+  background-color: #bbf7d0;
 }
